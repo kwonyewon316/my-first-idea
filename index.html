@@ -10,14 +10,67 @@
 </head>
 
 <body>
-    <div class="background-animation"></div>
-    <div class="container">
-        <div class="glass-card">
-            <h1 id="main-title">오늘도 힘내세요!</h1>
-            <p class="subtitle">새로운 시작을 향한 첫 걸음</p>
-            <button id="next-btn" class="btn-next">다음 문장 보기</button>
-        </div>
-    </div>
+    <header class="app-header">
+        <h2>
+            <svg class="header-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+            나의 첫 서비스
+        </h2>
+        <nav class="app-nav">
+            <a href="#">소개</a>
+            <a href="#">기능</a>
+            <a href="#">문의</a>
+        </nav>
+    </header>
+
+    <main class="app-body">
+        <div class="background-animation"></div>
+
+        <section class="section-hero">
+            <div class="container">
+                <div class="glass-card">
+                    <h1 id="main-title">오늘도 힘내세요!</h1>
+                    <p class="subtitle">새로운 시작을 향한 첫 걸음</p>
+                    <button id="next-btn" class="btn-next">다음 문장 보기</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-reviews">
+            <h3 class="section-title">사용자 후기</h3>
+            <div class="reviews-container">
+                <div class="review-card glass-card">
+                    <div class="reviewer-info">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                            alt="User 1" class="reviewer-img">
+                        <div>
+                            <h4 class="reviewer-name">김민지</h4>
+                            <p class="reviewer-role">취준생</p>
+                        </div>
+                    </div>
+                    <p class="review-text">"매일 아침 이 사이트에서 응원의 문구를 보며 힘을 얻어요. 디자인도 너무 예뻐서 계속 들어오게 됩니다!"</p>
+                </div>
+                <div class="review-card glass-card">
+                    <div class="reviewer-info">
+                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                            alt="User 2" class="reviewer-img">
+                        <div>
+                            <h4 class="reviewer-name">이준호</h4>
+                            <p class="reviewer-role">스타트업 대표</p>
+                        </div>
+                    </div>
+                    <p class="review-text">"간단한 인터페이스 안에 깊은 울림이 있네요. 주변 사람들에게도 추천하고 싶은 서비스입니다."</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>&copy; 2025 My Service</p>
+    </footer>
+
     <script>
         const sentences = [
             '오늘도 힘내세요!',

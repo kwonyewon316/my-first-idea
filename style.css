@@ -4,15 +4,87 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #ffb347;
+    --primary-hover: #2d3436;
+    --secondary-color: #2d3436;
+    --bg-gradient: linear-gradient(135deg, #fffaf5 0%, #ffe4cf 100%);
+    --footer-bg: #f5f5f5;
+    --text-main: #2d3436;
+    --text-muted: #636e72;
+}
+
 body {
     font-family: 'Noto Sans KR', sans-serif;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+.app-header {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    color: #334155;
-    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    z-index: 10;
+}
+
+.app-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.header-icon {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    stroke-width: 2.5px;
+}
+
+.app-nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.app-nav a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.app-nav a:hover {
+    color: white;
+}
+
+.app-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: var(--bg-gradient);
+}
+
+.app-footer {
+    background-color: #e2e8f0;
+    color: #475569;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.95rem;
+    z-index: 10;
 }
 
 /* Animated Background */
@@ -94,21 +166,21 @@ h1 {
     padding: 1rem 2.5rem;
     font-size: 1.1rem;
     font-weight: 500;
-    color: #ffffff;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    background: var(--primary-color);
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 10px 20px -5px rgba(255, 179, 71, 0.4);
     transition: all 0.3s ease;
     opacity: 0;
     animation: fadeIn 1.5s ease-out 1s forwards;
 }
 
 .btn-next:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.5);
-    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.1);
 }
 
 .btn-next:active {
@@ -118,12 +190,120 @@ h1 {
 /* Responsive adjustment */
 @media (max-width: 768px) {
     .glass-card {
-        padding: 3rem 2.5rem;
+        padding: 3rem 1.5rem;
     }
     h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
     }
     .subtitle {
+        font-size: 0.95rem;
+    }
+    .btn-next {
+        padding: 1.2rem 3rem; /* 더 큰 터치 영역 */
+        width: 100%; /* 모바일에서 버튼 너비 확장 */
         font-size: 1rem;
     }
+    .review-text {
+        font-size: 0.95rem;
+    }
+    .section-title {
+        font-size: 1.6rem;
+    }
+}
+
+.section-hero {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.section-reviews {
+    width: 100%;
+    max-width: 1000px;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #1e293b;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.reviews-container {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.review-card {
+    flex: 1;
+    min-width: 300px;
+    padding: 2.5rem;
+    text-align: left;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.reviewer-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.reviewer-name {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.reviewer-role {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.review-text {
+    line-height: 1.6;
+    color: #334155;
+    font-size: 1.05rem;
+    font-style: italic;
+    margin: 0;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
